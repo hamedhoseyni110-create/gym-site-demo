@@ -143,6 +143,27 @@ footer{position:relative;z-index:2;background:#080605;color:#6b5f4e;padding:3rem
 .tmore{display:inline-block;margin-top:.9rem;color:#f5a83d;font-size:.85rem;border:1px solid #4a3018;padding:.35rem 1.1rem;border-radius:999px}
 .hours-tbl tr[data-day]{cursor:pointer}
 .hours-tbl tr[data-day]:hover td{background:#1d150d}
+.gbadge{display:inline-block;padding:.28rem .8rem;border-radius:999px;font-size:.85rem;font-weight:700;white-space:nowrap}
+.gbadge.w{background:rgba(244,114,182,.13);border:1px solid #8a3f63;color:#f6a9cb}
+.gbadge.m{background:rgba(96,165,250,.13);border:1px solid #33507e;color:#a9c9f7}
+@media (max-width:560px){.hours-tbl th,.hours-tbl td{padding:.8rem .6rem;font-size:.85rem}.gbadge{font-size:.75rem;padding:.2rem .55rem}}
+.nstep{display:flex;align-items:center;gap:1rem;margin-bottom:1rem;flex-wrap:wrap}
+.nstep-lbl{color:#d9cfbd;font-size:.95rem;font-weight:700}
+.nstep-ctl{display:flex;align-items:center;gap:.7rem}
+.nstep-ctl button{width:42px;height:42px;border-radius:50%;border:1.5px solid #f5a83d;background:rgba(245,168,61,.08);color:#f5a83d;font-size:1.35rem;cursor:pointer;font-family:inherit;line-height:1;flex-shrink:0}
+.nstep-ctl button:disabled{opacity:.3;cursor:not-allowed}
+#bkNVal{font-size:1.35rem;font-weight:800;color:#fff;min-width:1.6em;text-align:center}
+.daycount{margin-top:.9rem;color:#a89a83;font-size:.92rem}
+.daycount b{color:#f5a83d}
+.bk-note{font-size:.85rem;color:#f0b45a;min-height:1.4em;margin-top:.5rem}
+.slot-note{font-size:.85rem;color:#8d8070;margin-top:.7rem}
+.gtag{display:block;font-size:.72rem;font-weight:400;margin-top:.15rem}
+.gtag.w{color:#f6a9cb}
+.gtag.m{color:#a9c9f7}
+.tgbadge{display:inline-block;margin-bottom:1.1rem;padding:.3rem 1rem;border-radius:999px;font-size:.82rem;font-weight:700}
+.tgbadge.w{background:rgba(244,114,182,.13);border:1px solid #8a3f63;color:#f6a9cb}
+.tgbadge.m{background:rgba(96,165,250,.13);border:1px solid #33507e;color:#a9c9f7}
+#bkConfirm:disabled{opacity:.45;cursor:not-allowed;box-shadow:none}
 .ph-addr{color:#8d8070;font-style:italic}
 .bkw{margin-top:2.6rem;border-top:1px solid #2b2117;padding-top:2.2rem;text-align:right}
 .bkw-title{text-align:center;font-size:1.25rem;font-weight:800;margin-bottom:1.8rem}
@@ -430,12 +451,12 @@ footer{position:relative;z-index:2;background:#080605;color:#6b5f4e;padding:3rem
 <section class="info" id="hours">
   <div class="sec-head"><div class="en">HOURS</div><h2>سانس‌ها و ساعت کاری</h2><div class="sub">هر روز هفته، سر ساعت خودت</div></div>
   <table class="hours-tbl">
-    <tr><th>روز</th><th>ساعت</th></tr>
-    <tr data-day="شنبه"><td>شنبه تا چهارشنبه</td><td>۶:۰۰ تا ۲۳:۰۰</td></tr>
-    <tr data-day="پنجشنبه"><td>پنجشنبه</td><td>۶:۰۰ تا ۲۲:۰۰</td></tr>
-    <tr data-day="جمعه"><td>جمعه</td><td>۸:۰۰ تا ۲۱:۰۰</td></tr>
+    <tr><th>روز</th><th>بانوان</th><th>آقایان</th></tr>
+    <tr data-day="شنبه"><td>شنبه تا چهارشنبه</td><td><span class="gbadge w">۶:۰۰ تا ۱۲:۰۰</span></td><td><span class="gbadge m">۱۴:۰۰ تا ۲۳:۰۰</span></td></tr>
+    <tr data-day="پنجشنبه"><td>پنجشنبه</td><td><span class="gbadge w">۶:۰۰ تا ۱۲:۰۰</span></td><td><span class="gbadge m">۱۴:۰۰ تا ۲۲:۰۰</span></td></tr>
+    <tr data-day="جمعه"><td>جمعه</td><td><span class="gbadge w">۸:۰۰ تا ۱۲:۰۰</span></td><td><span class="gbadge m">۱۴:۰۰ تا ۲۱:۰۰</span></td></tr>
   </table>
-  <div class="split-note">سانس بانوان: ۸:۰۰ تا ۱۴:۰۰ · سانس آقایان: ۱۴:۰۰ تا ۲۳:۰۰ (قابل تنظیم برای هر باشگاه)</div>
+  <div class="split-note">سانس صبح (تا ۱۲:۰۰) ویژه‌ی بانوان · سانس عصر و شب ویژه‌ی آقایان (قابل تنظیم برای هر باشگاه)</div>
 </section>
 
 <section class="info alt" id="trainers">
@@ -499,17 +520,28 @@ footer{position:relative;z-index:2;background:#080605;color:#6b5f4e;padding:3rem
     <div class="bkw" id="bkw">
       <div class="bkw-title">یا همین‌جا رزرو کن <span>— ۴ قدم ساده</span></div>
       <div class="bstep">
-        <h4><span class="snum">۱</span>روز رو انتخاب کن</h4>
+        <h4><span class="snum">۱</span>روزهای تمرین رو انتخاب کن</h4>
+        <div class="nstep">
+          <span class="nstep-lbl">تعداد جلسات در هفته:</span>
+          <div class="nstep-ctl">
+            <button type="button" id="bkNMinus" aria-label="کمتر">−</button>
+            <span id="bkNVal">۳</span>
+            <button type="button" id="bkNPlus" aria-label="بیشتر">+</button>
+          </div>
+        </div>
         <div class="opts" id="bkDays"></div>
+        <div class="daycount" id="bkDayCount"></div>
         <div class="ferr" id="errSteps"></div>
       </div>
       <div class="bstep">
         <h4><span class="snum">۲</span>سانس رو انتخاب کن</h4>
         <div class="opts" id="bkSlots"></div>
+        <div class="slot-note">این سانس برای همه‌ی روزهای انتخابی اعمال می‌شود</div>
       </div>
       <div class="bstep">
         <h4><span class="snum">۳</span>مربی رو انتخاب کن</h4>
         <div class="opts" id="bkTrainers"></div>
+        <div class="bk-note" id="bkTrainerNote"></div>
       </div>
       <div class="bstep">
         <h4><span class="snum">۴</span>مشخصاتت رو وارد کن</h4>
@@ -560,6 +592,7 @@ footer{position:relative;z-index:2;background:#080605;color:#6b5f4e;padding:3rem
   <div class="avatar"><svg width="52" height="52" viewBox="0 0 52 52" fill="none" stroke="#f5a83d" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><circle cx="26" cy="17" r="8"/><path d="M10 44c2-9 8-14 16-14s14 5 16 14"/></svg></div>
     <h3 id="tmName"></h3>
     <div class="trole" id="tmRole"></div>
+    <div class="tgbadge" id="tmGender"></div>
     <table class="tt-tbl" id="tmTbl"></table>
     <button class="pbtn" id="tmPick" type="button">انتخاب این مربی</button>
   </div>
@@ -653,45 +686,124 @@ function station(n,anim){
 /* v3: booking widget + trainer modal */
 var DAYS=['شنبه','یکشنبه','دوشنبه','سه‌شنبه','چهارشنبه','پنجشنبه','جمعه'];
 var SLOTS=[
- {t:'۶ تا ۸ صبح',full:false},{t:'۸ تا ۱۰ صبح',full:false},{t:'۱۰ تا ۱۲ ظهر',full:true},
- {t:'۱۶ تا ۱۸ عصر',full:false},{t:'۱۸ تا ۲۰ عصر',full:true},{t:'۲۰ تا ۲۲ شب',full:false}
+ {t:'۶ تا ۸ صبح',g:'w',full:false},{t:'۸ تا ۱۰ صبح',g:'w',full:false},{t:'۱۰ تا ۱۲ ظهر',g:'w',full:true},
+ {t:'۱۶ تا ۱۸ عصر',g:'m',full:false},{t:'۱۸ تا ۲۰ عصر',g:'m',full:true},{t:'۲۰ تا ۲۲ شب',g:'m',full:false}
 ];
 var TRAINERS=[
- {id:'daniel',name:'Daniel Cole',role:'بدنسازی و پرورش اندام',
-  tt:[['شنبه','۸ تا ۱۲ · ۱۶ تا ۲۰'],['یکشنبه','۸ تا ۱۲ · ۱۶ تا ۲۰'],['دوشنبه','۸ تا ۱۲ · ۱۶ تا ۲۰'],['سه‌شنبه','۸ تا ۱۲ · ۱۶ تا ۲۰'],['چهارشنبه','۸ تا ۱۲ · ۱۶ تا ۲۰'],['پنجشنبه','۸ تا ۱۲'],['جمعه','—']]},
- {id:'emma',name:'Emma Wilson',role:'کراس‌فیت و تمرینات هوازی',
-  tt:[['شنبه','۱۰ تا ۱۴ · ۱۷ تا ۲۱'],['یکشنبه','—'],['دوشنبه','۱۰ تا ۱۴ · ۱۷ تا ۲۱'],['سه‌شنبه','—'],['چهارشنبه','۱۰ تا ۱۴ · ۱۷ تا ۲۱'],['پنجشنبه','۱۰ تا ۱۴'],['جمعه','—']]},
- {id:'james',name:'James Carter',role:'پاورلیفتینگ',
-  tt:[['شنبه','۷ تا ۱۱ · ۱۵ تا ۱۹'],['یکشنبه','۷ تا ۱۱ · ۱۵ تا ۱۹'],['دوشنبه','—'],['سه‌شنبه','۷ تا ۱۱ · ۱۵ تا ۱۹'],['چهارشنبه','—'],['پنجشنبه','۷ تا ۱۱'],['جمعه','—']]}
+ {id:'daniel',name:'Daniel Cole',role:'بدنسازی و پرورش اندام',g:'m',
+  tt:[['شنبه','۱۶ تا ۲۲'],['یکشنبه','۱۶ تا ۲۲'],['دوشنبه','۱۶ تا ۲۲'],['سه‌شنبه','۱۶ تا ۲۲'],['چهارشنبه','۱۶ تا ۲۲'],['پنجشنبه','۱۶ تا ۲۲'],['جمعه','—']]},
+ {id:'emma',name:'Emma Wilson',role:'کراس‌فیت و تمرینات هوازی',g:'w',
+  tt:[['شنبه','۶ تا ۱۲'],['یکشنبه','—'],['دوشنبه','۶ تا ۱۲'],['سه‌شنبه','—'],['چهارشنبه','۶ تا ۱۲'],['پنجشنبه','۶ تا ۱۲'],['جمعه','—']]},
+ {id:'james',name:'James Carter',role:'پاورلیفتینگ',g:'m',
+  tt:[['شنبه','۱۶ تا ۲۲'],['یکشنبه','۱۶ تا ۲۲'],['دوشنبه','۱۶ تا ۲۲'],['سه‌شنبه','۱۶ تا ۲۲'],['چهارشنبه','۱۶ تا ۲۲'],['پنجشنبه','۱۶ تا ۲۲'],['جمعه','—']]}
 ];
-var BK={day:null,slot:null,trainer:null,plan:null};
+var BK={days:[],dayN:3,slot:null,trainer:null,plan:null};
+var dayOrder=[];
 var DAYL=DAYS.map(function(x){return {t:x,v:x}});
-var SLOTL=SLOTS.map(function(x){return {t:x.t,v:x.t,full:x.full}});
-var TRL=TRAINERS.map(function(x){return {t:'<span dir="ltr">'+x.name+'</span>',v:x.id}}).concat([{t:'بدون مربی',v:'none'}]);
+function gtag(g){return g==='w'?'<span class="gtag w">بانوان</span>':'<span class="gtag m">آقایان</span>'}
+var SLOTL=SLOTS.map(function(x){return {t:x.t+' '+gtag(x.g),v:x.t,full:x.full}});
+var TRL=TRAINERS.map(function(x){return {t:'<span dir="ltr">'+x.name+'</span> '+gtag(x.g),v:x.id}}).concat([{t:'بدون مربی',v:'none'}]);
 function faToEn(s){return String(s).replace(/[۰۱۲۳۴۵۶۷۸۹]/g,function(d){return '۰۱۲۳۴۵۶۷۸۹'.indexOf(d)})}
-function optHtml(list,selKey){
+function faNum(n){return Number(n).toLocaleString('fa-IR')}
+function slotGender(){for(var i=0;i<SLOTS.length;i++)if(SLOTS[i].t===BK.slot)return SLOTS[i].g;return null}
+function trainerById(tid){
+ for(var i=0;i<TRAINERS.length;i++)if(TRAINERS[i].id===tid)return TRAINERS[i];
+ return null;
+}
+function trainerOffDays(t){
+ var off=[];
+ for(var i=0;i<t.tt.length;i++)if(t.tt[i][1]==='—')off.push(t.tt[i][0]);
+ return off;
+}
+function trainerBlockReason(t){
+ if(BK.days.indexOf('جمعه')>-1)return 'friday';
+ var g=slotGender();
+ if(g&&t.g!==g)return 'gender';
+ var off=trainerOffDays(t);
+ for(var i=0;i<BK.days.length;i++)if(off.indexOf(BK.days[i])>-1)return 'day';
+ return '';
+}
+function trainerAllowed(tid){
+ if(!tid||tid==='none')return true;
+ var t=trainerById(tid);
+ if(!t)return true;
+ return trainerBlockReason(t)==='';
+}
+function validateBooking(){
+ var note=document.getElementById('bkTrainerNote');
+ var msg='';
+ if(BK.trainer&&BK.trainer!=='none'){
+  var t=trainerById(BK.trainer);
+  var r=t?trainerBlockReason(t):'';
+  if(r){BK.trainer=null;
+   msg=r==='day'?'این مربی در روزهای انتخابی حضور ندارد':r==='gender'?'این مربی در این سانس حضور ندارد':'روزهای جمعه باشگاه بدون مربی برگزار می‌شود';}
+ }
+ if(!msg&&BK.days.indexOf('جمعه')>-1)msg='روزهای جمعه باشگاه بدون مربی برگزار می‌شود';
+ if(note)note.textContent=msg;
+}
+function optHtml(list,selKey,isMulti){
  var h='';
  list.forEach(function(it,i){
-  h+='<button type="button" class="opt'+(BK[selKey]===it.v?' sel':'')+'" data-i="'+i+'"'+(it.full?' disabled':'')+'><span class="olbl">'+it.t+'</span>'+(it.full?'<span class="fulltag">تکمیل ظرفیت</span>':'')+'</button>';
+  var sel=isMulti?BK.days.indexOf(it.v)>-1:BK[selKey]===it.v;
+  h+='<button type="button" class="opt'+(sel?' sel':'')+'" data-i="'+i+'"'+(it.full?' disabled':'')+'><span class="olbl">'+it.t+'</span>'+(it.full?'<span class="fulltag">تکمیل ظرفیت</span>':'')+'</button>';
  });
  return h;
 }
-function bindOpts(el,list,selKey){
- Array.prototype.forEach.call(el.querySelectorAll('.opt:not(:disabled)'),function(b){
-  b.addEventListener('click',function(){
-   BK[selKey]=list[+b.getAttribute('data-i')].v;
-   document.getElementById('errSteps').textContent='';
-   renderBk();
-  });
- });
+function toggleDay(v){
+ var ix=BK.days.indexOf(v);
+ if(ix>-1){BK.days.splice(ix,1);dayOrder.splice(dayOrder.indexOf(v),1);}
+ else{
+  if(BK.days.length>=BK.dayN){
+   var e=document.getElementById('errSteps');
+   e.textContent='فقط '+faNum(BK.dayN)+' روز می‌تونی انتخاب کنی';
+   setTimeout(function(){if(e.textContent.charAt(0)==='ف')e.textContent=''},1600);
+   return;
+  }
+  BK.days.push(v);dayOrder.push(v);
+ }
+ renderBk();
+}
+function setN(n){
+ n=Math.max(1,Math.min(6,n));
+ BK.dayN=n;
+ while(BK.days.length>n){var v=dayOrder.pop();BK.days.splice(BK.days.indexOf(v),1);}
+ renderBk();
 }
 function renderBk(){
  var d=document.getElementById('bkDays'),s=document.getElementById('bkSlots'),t=document.getElementById('bkTrainers');
  if(!d||!s||!t)return;
- d.innerHTML=optHtml(DAYL,'day');bindOpts(d,DAYL,'day');
- s.innerHTML=optHtml(SLOTL,'slot');bindOpts(s,SLOTL,'slot');
- t.innerHTML=optHtml(TRL,'trainer');bindOpts(t,TRL,'trainer');
+ validateBooking();
+ d.innerHTML=optHtml(DAYL,null,true);
+ Array.prototype.forEach.call(d.querySelectorAll('.opt'),function(b){
+  b.addEventListener('click',function(){toggleDay(DAYL[+b.getAttribute('data-i')].v)});
+ });
+ s.innerHTML=optHtml(SLOTL,'slot',false);
+ Array.prototype.forEach.call(s.querySelectorAll('.opt:not(:disabled)'),function(b){
+  b.addEventListener('click',function(){
+   var ns=SLOTL[+b.getAttribute('data-i')].v;
+   if(BK.slot!==ns){BK.slot=ns;}
+   document.getElementById('errSteps').textContent='';
+   renderBk();
+  });
+ });
+ var tlist=TRL.filter(function(it){return it.v==='none'||trainerAllowed(it.v)});
+ t.innerHTML=optHtml(tlist,'trainer',false);
+ Array.prototype.forEach.call(t.querySelectorAll('.opt'),function(b){
+  b.addEventListener('click',function(){
+   BK.trainer=tlist[+b.getAttribute('data-i')].v;
+   document.getElementById('bkTrainerNote').textContent='';
+   document.getElementById('errSteps').textContent='';
+   renderBk();
+  });
+ });
+ document.getElementById('bkNVal').textContent=faNum(BK.dayN);
+ document.getElementById('bkNMinus').disabled=BK.dayN<=1;
+ document.getElementById('bkNPlus').disabled=BK.dayN>=6;
+ document.getElementById('bkDayCount').innerHTML='<b>'+faNum(BK.days.length)+'</b> از <b>'+faNum(BK.dayN)+'</b> روز انتخاب شده';
+ document.getElementById('bkConfirm').disabled=BK.days.length!==BK.dayN;
 }
+document.getElementById('bkNMinus').addEventListener('click',function(){setN(BK.dayN-1)});
+document.getElementById('bkNPlus').addEventListener('click',function(){setN(BK.dayN+1)});
 function validMobile(s){return /^09\d{9}$/.test(faToEn(s).replace(/[\s-]/g,''))}
 function trainerPlain(id){
  if(!id||id==='none')return 'بدون مربی';
@@ -708,26 +820,27 @@ document.getElementById('bkConfirm').addEventListener('click',function(){
      eS=document.getElementById('errSteps'),eN=document.getElementById('errName'),eM=document.getElementById('errMobile');
  eS.textContent='';eN.textContent='';eM.textContent='';
  var ok=true;
- if(!BK.day){eS.textContent='اول یه روز انتخاب کن';ok=false}
+ if(BK.days.length!==BK.dayN){eS.textContent='اول '+faNum(BK.dayN)+' روز انتخاب کن ('+faNum(BK.days.length)+' از '+faNum(BK.dayN)+')';ok=false}
  else if(!BK.slot){eS.textContent='حالا یه سانس انتخاب کن';ok=false}
  if(!name){eN.textContent='اسمت رو وارد کن';ok=false}
  if(!validMobile(mob)){eM.textContent='شماره موبایل معتبر نیست — ۱۱ رقم که با ۰۹ شروع بشه';ok=false}
  if(!ok)return;
  var code='GYM-'+Math.floor(1000+Math.random()*9000);
  var mobEn=faToEn(mob).replace(/(\d{4})(\d{3})(\d{4})/,'$1 $2 $3');
- var rows=[['روز',BK.day],['سانس',BK.slot],['مربی',trainerHtml(BK.trainer)]];
+ var rows=[['روزها',BK.days.join('، ')],['سانس',BK.slot],['مربی',trainerHtml(BK.trainer)]];
  if(BK.plan)rows.push(['پلن',BK.plan]);
  rows.push(['نام',name],['موبایل','<span dir="ltr">'+mobEn+'</span>']);
  document.getElementById('bkSummary').innerHTML=rows.map(function(r){return '<div>'+r[0]+': <b>'+r[1]+'</b></div>'}).join('');
  document.getElementById('bkCode').textContent=code;
- var plain='رزرو جلسه اول رایگان\nکد پیگیری: '+code+'\nروز: '+BK.day+'\nسانس: '+BK.slot+'\nمربی: '+trainerPlain(BK.trainer)+(BK.plan?'\nپلن: '+BK.plan:'')+'\nنام: '+name+'\nموبایل: '+faToEn(mob);
+ var plain='رزرو جلسه اول رایگان\nکد پیگیری: '+code+'\nروزها: '+BK.days.join('، ')+'\nسانس: '+BK.slot+'\nمربی: '+trainerPlain(BK.trainer)+(BK.plan?'\nپلن: '+BK.plan:'')+'\nنام: '+name+'\nموبایل: '+faToEn(mob);
  document.getElementById('bkWa').href='https://wa.me/989123456789?text='+encodeURIComponent(plain);
  var sc=document.getElementById('bkSuccess');
  sc.hidden=false;
  sc.scrollIntoView({behavior:reduce?'auto':'smooth',block:'center'});
 });
 document.getElementById('bkAgain').addEventListener('click',function(){
- BK={day:null,slot:null,trainer:null,plan:null};
+ BK={days:[],dayN:3,slot:null,trainer:null,plan:null};dayOrder=[];
+ document.getElementById('bkTrainerNote').textContent='';
  document.getElementById('bkName').value='';document.getElementById('bkMobile').value='';
  document.getElementById('bkSuccess').hidden=true;
  renderBk();
@@ -735,8 +848,12 @@ document.getElementById('bkAgain').addEventListener('click',function(){
 });
 window.prefillBooking=function(o){
  o=o||{};
- if(o.day&&DAYS.indexOf(o.day)>-1)BK.day=o.day;
- if(o.trainer){var ok=o.trainer==='none';for(var i=0;i<TRAINERS.length;i++)if(TRAINERS[i].id===o.trainer)ok=true;if(ok)BK.trainer=o.trainer;}
+ if(o.days&&o.days.length){
+  var dd=o.days.filter(function(x){return DAYS.indexOf(x)>-1}).slice(0,6);
+  if(dd.length){BK.days=dd;dayOrder=dd.slice();BK.dayN=Math.max(1,Math.min(6,dd.length));}
+ }else if(o.day&&DAYS.indexOf(o.day)>-1){BK.days=[o.day];dayOrder=[o.day];BK.dayN=1;}
+ if(o.trainer){var ok=o.trainer==='none';for(var i=0;i<TRAINERS.length;i++)if(TRAINERS[i].id===o.trainer)ok=true;
+  if(ok)BK.trainer=o.trainer;}
  if(o.plan)BK.plan=o.plan;
  renderBk();
  var b=document.getElementById('booking');
@@ -748,6 +865,9 @@ function openTModal(tid){
  if(!t)return;curTid=tid;
  document.getElementById('tmName').textContent=t.name;
  document.getElementById('tmRole').textContent=t.role;
+ var tg=document.getElementById('tmGender');
+ tg.textContent=t.g==='w'?'سانس بانوان (صبح‌ها)':'سانس آقایان (عصر و شب)';
+ tg.className='tgbadge '+(t.g==='w'?'w':'m');
  document.getElementById('tmTbl').innerHTML=t.tt.map(function(r){return '<tr><td>'+r[0]+'</td><td>'+r[1]+'</td></tr>'}).join('');
  tmodal.classList.add('open');tmodal.setAttribute('aria-hidden','false');
  document.body.style.overflow='hidden';
@@ -771,7 +891,7 @@ Array.prototype.forEach.call(document.querySelectorAll('.tcard'),function(c){
  c.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();go()}});
 });
 Array.prototype.forEach.call(document.querySelectorAll('.hours-tbl tr[data-day]'),function(r){
- r.addEventListener('click',function(){window.prefillBooking({day:r.getAttribute('data-day')})});
+ r.addEventListener('click',function(){window.prefillBooking({days:[r.getAttribute('data-day')]})});
 });
 Array.prototype.forEach.call(document.querySelectorAll('[data-plan]'),function(a){
  a.addEventListener('click',function(e){e.preventDefault();window.prefillBooking({plan:a.getAttribute('data-plan')})});
