@@ -137,7 +137,53 @@ footer{position:relative;z-index:2;background:#080605;color:#6b5f4e;padding:3rem
 .social{display:flex;gap:1rem;justify-content:center;margin-bottom:1.4rem;flex-wrap:wrap}
 .social a{color:#8d8070;text-decoration:none;border:1px solid #2b2117;padding:.5rem 1.1rem;border-radius:999px;font-size:.9rem}
 .copy{text-align:center;font-size:.82rem;line-height:2}
+/* v3: clickable trainers, schedule rows, interactive booking, trainer modal */
+.tcard{cursor:pointer}
+.tcard h3{direction:ltr}
+.tmore{display:inline-block;margin-top:.9rem;color:#f5a83d;font-size:.85rem;border:1px solid #4a3018;padding:.35rem 1.1rem;border-radius:999px}
+.hours-tbl tr[data-day]{cursor:pointer}
+.hours-tbl tr[data-day]:hover td{background:#1d150d}
+.ph-addr{color:#8d8070;font-style:italic}
+.bkw{margin-top:2.6rem;border-top:1px solid #2b2117;padding-top:2.2rem;text-align:right}
+.bkw-title{text-align:center;font-size:1.25rem;font-weight:800;margin-bottom:1.8rem}
+.bkw-title span{color:#8d8070;font-weight:400;font-size:.95rem}
+.bstep{margin-bottom:1.8rem}
+.bstep>h4{font-size:1.05rem;margin-bottom:.9rem;display:flex;align-items:center;gap:.6rem}
+.snum{display:inline-flex;align-items:center;justify-content:center;width:1.7rem;height:1.7rem;border-radius:50%;background:#f5a83d;color:#1a0f06;font-size:.9rem;font-weight:800;flex-shrink:0}
+.opts{display:flex;flex-wrap:wrap;gap:.6rem}
+.opt{font-family:inherit;font-size:.95rem;font-weight:700;color:#d9cfbd;background:#14100c;border:1.5px solid #3a2c1c;border-radius:12px;padding:.7rem 1.1rem;cursor:pointer;transition:border-color .15s,background .15s}
+.opt:hover:not(:disabled){border-color:#f5a83d}
+.opt.sel{background:radial-gradient(circle at 35% 30%,#ffcf7d,#f5a83d 55%,#e07b1a);color:#1a0f06;border-color:#f5a83d}
+.opt:disabled{opacity:.45;cursor:not-allowed}
+.opt:disabled .olbl{text-decoration:line-through}
+.fulltag{display:block;font-size:.72rem;font-weight:400}
+.bstep input{width:100%;font-family:inherit;font-size:1.05rem;color:#ece5d8;background:#0e0b09;border:1.5px solid #3a2c1c;border-radius:12px;padding:.9rem 1.1rem;margin-bottom:.3rem;text-align:right}
+.bstep input:focus{outline:none;border-color:#f5a83d}
+.ferr{color:#ff9a8a;font-size:.85rem;min-height:1.5em;margin-bottom:.5rem}
+#bkConfirm{font-family:inherit;width:100%;font-size:1.15rem;font-weight:800;color:#1a0f06;background:radial-gradient(circle at 35% 30%,#ffcf7d,#f5a83d 55%,#e07b1a);border:none;border-radius:14px;padding:1rem;cursor:pointer;box-shadow:0 0 30px rgba(245,168,61,.35)}
+#bkConfirm:active{transform:scale(.98)}
+.bsuccess{text-align:center}
+.okc{width:72px;height:72px;margin:0 auto 1rem;border-radius:50%;background:rgba(37,211,102,.15);border:2px solid #25d366;color:#7de8a3;font-size:2rem;display:flex;align-items:center;justify-content:center}
+.bsuccess h4{font-size:1.4rem;margin-bottom:1rem}
+.bsum{background:#0e0b09;border:1px solid #2b2117;border-radius:14px;padding:1.2rem 1.4rem;margin-bottom:1rem;text-align:right;line-height:2.1;color:#d9cfbd;font-size:.98rem}
+.bsum b{color:#fff}
+.bcode{margin-bottom:1.4rem;color:#a89a83}
+.bcode b{color:#f5a83d;font-size:1.15rem;letter-spacing:.08em}
+.bkw-again{display:block;margin:1.1rem auto 0;font-family:inherit;background:none;border:none;color:#8d8070;font-size:.9rem;cursor:pointer;text-decoration:underline}
+.tmodal{position:fixed;inset:0;z-index:100;display:flex;align-items:center;justify-content:center;padding:1.2rem;opacity:0;visibility:hidden;transition:opacity .3s,visibility .3s}
+.tmodal.open{opacity:1;visibility:visible}
+.tm-back{position:absolute;inset:0;background:rgba(0,0,0,.75)}
+.tm-box{position:relative;background:#14100c;border:1px solid #3a2a16;border-radius:22px;padding:2.2rem 1.8rem;max-width:440px;width:100%;max-height:86vh;overflow-y:auto;text-align:center}
+.tm-x{position:absolute;top:.7rem;left:.7rem;width:38px;height:38px;border-radius:50%;background:none;border:1.5px solid #4a3018;color:#f5a83d;font-size:1.25rem;cursor:pointer;font-family:inherit;line-height:1}
+.tm-box .avatar{margin:0 auto .8rem}
+.tm-box h3{font-size:1.3rem;font-weight:800;direction:ltr;margin-bottom:.3rem}
+.tm-box .trole{color:#f5a83d;margin-bottom:1.2rem}
+.tt-tbl{width:100%;border-collapse:collapse;margin-bottom:1.4rem;font-size:.92rem}
+.tt-tbl td{padding:.6rem .4rem;border-bottom:1px solid #221a12;color:#d9cfbd;text-align:right}
+.tt-tbl td:last-child{color:#f5a83d;text-align:left;white-space:nowrap}
+.tm-box .pbtn{border:none;cursor:pointer;font-family:inherit;width:100%}
 /* sticky CTA */
+
 #stickyCta{position:fixed;bottom:1.1rem;left:1.1rem;z-index:60;display:inline-flex;align-items:center;gap:.6rem;
  background:radial-gradient(circle at 35% 30%,#ffcf7d,#f5a83d 55%,#e07b1a);color:#1a0f06;font-weight:800;font-size:.98rem;
  padding:.85rem 1.4rem;border-radius:999px;text-decoration:none;box-shadow:0 0 30px rgba(245,168,61,.5),0 8px 24px rgba(0,0,0,.5);
@@ -385,9 +431,9 @@ footer{position:relative;z-index:2;background:#080605;color:#6b5f4e;padding:3rem
   <div class="sec-head"><div class="en">HOURS</div><h2>سانس‌ها و ساعت کاری</h2><div class="sub">هر روز هفته، سر ساعت خودت</div></div>
   <table class="hours-tbl">
     <tr><th>روز</th><th>ساعت</th></tr>
-    <tr><td>شنبه تا چهارشنبه</td><td>۶:۰۰ تا ۲۳:۰۰</td></tr>
-    <tr><td>پنجشنبه</td><td>۶:۰۰ تا ۲۲:۰۰</td></tr>
-    <tr><td>جمعه</td><td>۸:۰۰ تا ۲۱:۰۰</td></tr>
+    <tr data-day="شنبه"><td>شنبه تا چهارشنبه</td><td>۶:۰۰ تا ۲۳:۰۰</td></tr>
+    <tr data-day="پنجشنبه"><td>پنجشنبه</td><td>۶:۰۰ تا ۲۲:۰۰</td></tr>
+    <tr data-day="جمعه"><td>جمعه</td><td>۸:۰۰ تا ۲۱:۰۰</td></tr>
   </table>
   <div class="split-note">سانس بانوان: ۸:۰۰ تا ۱۴:۰۰ · سانس آقایان: ۱۴:۰۰ تا ۲۳:۰۰ (قابل تنظیم برای هر باشگاه)</div>
 </section>
@@ -395,20 +441,23 @@ footer{position:relative;z-index:2;background:#080605;color:#6b5f4e;padding:3rem
 <section class="info alt" id="trainers">
   <div class="sec-head"><div class="en">COACHES</div><h2>مربی‌ها</h2><div class="sub">زیر نظر حرفه‌ای‌ها تمرین کن</div></div>
   <div class="tgrid">
-    <div class="tcard">
+    <div class="tcard" data-tid="daniel" role="button" tabindex="0">
       <div class="avatar"><svg width="52" height="52" viewBox="0 0 52 52" fill="none" stroke="#f5a83d" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><circle cx="26" cy="17" r="8"/><path d="M10 44c2-9 8-14 16-14s14 5 16 14"/></svg></div>
-      <h3>رضا احمدی</h3><div class="role">بدنسازی و پاورلیفتینگ</div>
-      <p>۱۰ سال سابقه‌ی مربیگری · قهرمان پاورلیفتینگ کشور</p>
+      <h3>Daniel Cole</h3><div class="role">بدنسازی و پرورش اندام</div>
+      <p>۱۰ سال سابقه‌ی مربیگری · متخصص هایپرتروفی</p>
+      <span class="tmore">کلیک کن — سانس‌های هفتگی</span>
     </div>
-    <div class="tcard">
+    <div class="tcard" data-tid="emma" role="button" tabindex="0">
       <div class="avatar"><svg width="52" height="52" viewBox="0 0 52 52" fill="none" stroke="#f5a83d" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><circle cx="26" cy="17" r="8"/><path d="M10 44c2-9 8-14 16-14s14 5 16 14"/></svg></div>
-      <h3>نگار کریمی</h3><div class="role">کراس‌فیت و تمرینات فانکشنال</div>
-      <p>مربی رسمی کراس‌فیت · متخصص تمرینات HIIT</p>
+      <h3>Emma Wilson</h3><div class="role">کراس‌فیت و تمرینات هوازی</div>
+      <p>مربی رسمی کراس‌فیت · متخصص HIIT</p>
+      <span class="tmore">کلیک کن — سانس‌های هفتگی</span>
     </div>
-    <div class="tcard">
+    <div class="tcard" data-tid="james" role="button" tabindex="0">
       <div class="avatar"><svg width="52" height="52" viewBox="0 0 52 52" fill="none" stroke="#f5a83d" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><circle cx="26" cy="17" r="8"/><path d="M10 44c2-9 8-14 16-14s14 5 16 14"/></svg></div>
-      <h3>مهدی نادری</h3><div class="role">تمرینات اصلاحی و آمادگی جسمانی</div>
-      <p>کارشناس آسیب‌های ورزشی · برنامه‌ی اختصاصی هر بدن</p>
+      <h3>James Carter</h3><div class="role">پاورلیفتینگ</div>
+      <p>قهرمان پاورلیفتینگ · برنامه‌ی قدرتی اختصاصی</p>
+      <span class="tmore">کلیک کن — سانس‌های هفتگی</span>
     </div>
   </div>
 </section>
@@ -419,18 +468,18 @@ footer{position:relative;z-index:2;background:#080605;color:#6b5f4e;padding:3rem
     <div class="pcard">
       <h3>ماهانه</h3><div class="price">۸۰۰٬۰۰۰ <small>تومان</small></div>
       <ul><li>دسترسی کامل به سالن</li><li>یک جلسه آنالیز بدن</li><li>برنامه‌ی تمرینی پایه</li></ul>
-      <a class="pbtn ghost" href="#booking">انتخاب</a>
+      <a class="pbtn ghost" data-plan="ماهانه" href="#booking">انتخاب</a>
     </div>
     <div class="pcard hot">
       <span class="tag">پیشنهاد ما</span>
       <h3>سه‌ماهه</h3><div class="price">۲٬۰۰۰٬۰۰۰ <small>تومان</small></div>
       <ul><li>دسترسی کامل به سالن</li><li>آنالیز بدن ماهانه</li><li>برنامه‌ی تمرینی اختصاصی</li><li>یک جلسه با مربی خصوصی</li></ul>
-      <a class="pbtn" href="#booking">انتخاب</a>
+      <a class="pbtn" data-plan="سه‌ماهه" href="#booking">انتخاب</a>
     </div>
     <div class="pcard">
       <h3>سالانه</h3><div class="price">۶٬۰۰۰٬۰۰۰ <small>تومان</small></div>
       <ul><li>دسترسی کامل به سالن</li><li>آنالیز بدن ماهانه</li><li>برنامه‌ی اختصاصی + تغذیه</li><li>چهار جلسه با مربی خصوصی</li></ul>
-      <a class="pbtn ghost" href="#booking">انتخاب</a>
+      <a class="pbtn ghost" data-plan="سالانه" href="#booking">انتخاب</a>
     </div>
   </div>
   <div class="demo-note">قیمت‌ها نمایشی‌اند — هر باشگاه قیمت‌های خودش را جایگزین می‌کند</div>
@@ -446,12 +495,45 @@ footer{position:relative;z-index:2;background:#080605;color:#6b5f4e;padding:3rem
       <a class="callbtn wa" href="https://wa.me/989123456789" target="_blank" rel="noopener"><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.4 14.1c-.2.7-1.3 1.3-1.9 1.4-.5.1-1.1.2-3.5-.8-2.9-1.2-4.8-4.2-4.9-4.4-.2-.2-1.2-1.6-1.2-3s.8-2.1 1-2.4c.3-.3.6-.3.8-.3h.5c.2 0 .4 0 .6.5s.8 2 .9 2.1c.1.1.1.3-.1.6-.3.6-.6.8-.5 1.1.7 1.2 1.6 2.1 2.8 2.7.3.2.5.1.7-.1l.8-1c.2-.3.5-.2.8-.1l2 .9c.3.2.5.3.6.4 0 .2-.1.6-.4 1.3z"/></svg><span>واتس‌اپ</span></a>
     </div>
   </div>
+
+    <div class="bkw" id="bkw">
+      <div class="bkw-title">یا همین‌جا رزرو کن <span>— ۴ قدم ساده</span></div>
+      <div class="bstep">
+        <h4><span class="snum">۱</span>روز رو انتخاب کن</h4>
+        <div class="opts" id="bkDays"></div>
+        <div class="ferr" id="errSteps"></div>
+      </div>
+      <div class="bstep">
+        <h4><span class="snum">۲</span>سانس رو انتخاب کن</h4>
+        <div class="opts" id="bkSlots"></div>
+      </div>
+      <div class="bstep">
+        <h4><span class="snum">۳</span>مربی رو انتخاب کن</h4>
+        <div class="opts" id="bkTrainers"></div>
+      </div>
+      <div class="bstep">
+        <h4><span class="snum">۴</span>مشخصاتت رو وارد کن</h4>
+        <input id="bkName" type="text" placeholder="نام و نام خانوادگی" autocomplete="name">
+        <div class="ferr" id="errName"></div>
+        <input id="bkMobile" type="tel" inputmode="numeric" placeholder="موبایل — مثلاً ۰۹۱۲۳۴۵۶۷۸۹" autocomplete="tel">
+        <div class="ferr" id="errMobile"></div>
+        <button id="bkConfirm" type="button">تأیید رزرو</button>
+      </div>
+      <div class="bsuccess" id="bkSuccess" hidden>
+        <div class="okc">✓</div>
+        <h4>رزروت ثبت شد!</h4>
+        <div class="bsum" id="bkSummary"></div>
+        <div class="bcode">کد پیگیری: <b dir="ltr" id="bkCode">GYM-0000</b></div>
+        <a class="callbtn wa" id="bkWa" href="#" target="_blank" rel="noopener"><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.4 14.1c-.2.7-1.3 1.3-1.9 1.4-.5.1-1.1.2-3.5-.8-2.9-1.2-4.8-4.2-4.9-4.4-.2-.2-1.2-1.6-1.2-3s.8-2.1 1-2.4c.3-.3.6-.3.8-.3h.5c.2 0 .4 0 .6.5s.8 2 .9 2.1c.1.1.1.3-.1.6-.3.6-.6.8-.5 1.1.7 1.2 1.6 2.1 2.8 2.7.3.2.5.1.7-.1l.8-1c.2-.3.5-.2.8-.1l2 .9c.3.2.5.3.6.4 0 .2-.1.6-.4 1.3z"/></svg><span>ارسال در واتس‌اپ</span></a>
+        <button class="bkw-again" id="bkAgain" type="button">ثبت رزرو جدید</button>
+      </div>
+    </div>
 </section>
 
 <section class="info alt" id="contact">
   <div class="sec-head"><div class="en">CONTACT</div><h2>تماس و آدرس</h2><div class="sub">پیدامون کن — سخت نیست</div></div>
   <div class="cgrid">
-    <div class="ccard"><h3>آدرس</h3><p>تهران، خیابان ولیعصر، روبه‌روی پارک ساعی، پلاک ۱۲</p></div>
+    <div class="ccard"><h3>آدرس</h3><p class="ph-addr">آدرس باشگاه اینجا قرار می‌گیرد</p></div>
     <div class="ccard"><h3>تلفن</h3><p><a href="tel:+989123456789"><span dir="ltr">۰۹۱۲ ۳۴۵ ۶۷۸۹</span></a></p></div>
     <div class="ccard"><h3>اینستاگرام</h3><p><span dir="ltr">@gym.demo</span></p></div>
   </div>
@@ -470,6 +552,18 @@ footer{position:relative;z-index:2;background:#080605;color:#6b5f4e;padding:3rem
   </div>
   <div class="copy">© ۱۴۰۵ باشگاه نمونه — تمامی حقوق محفوظ است · نسخه‌ی نمایشی</div>
 </footer>
+
+<div class="tmodal" id="tmodal" aria-hidden="true">
+  <div class="tm-back" data-tclose></div>
+  <div class="tm-box" role="dialog" aria-modal="true">
+    <button class="tm-x" type="button" data-tclose aria-label="بستن">×</button>
+  <div class="avatar"><svg width="52" height="52" viewBox="0 0 52 52" fill="none" stroke="#f5a83d" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><circle cx="26" cy="17" r="8"/><path d="M10 44c2-9 8-14 16-14s14 5 16 14"/></svg></div>
+    <h3 id="tmName"></h3>
+    <div class="trole" id="tmRole"></div>
+    <table class="tt-tbl" id="tmTbl"></table>
+    <button class="pbtn" id="tmPick" type="button">انتخاب این مربی</button>
+  </div>
+</div>
 
 <script>
 (function(){
@@ -492,7 +586,7 @@ function refreshSticky(){
  sticky.classList.toggle('show',p>=0.995&&!hideSticky);
 }
 if('IntersectionObserver' in window){
- new IntersectionObserver(function(es){hideSticky=es[0].isIntersecting;refreshSticky();},{threshold:0.6}).observe(document.getElementById('booking'));
+ new IntersectionObserver(function(es){hideSticky=es[0].isIntersecting;refreshSticky();},{threshold:0.15}).observe(document.getElementById('booking'));
 }
 function clamp(v){return Math.max(0,Math.min(1,v))}
 function onScroll(){
@@ -556,6 +650,133 @@ function station(n,anim){
   repnum.classList.remove('pop');void repnum.offsetWidth;repnum.classList.add('pop');
  });
 }
+/* v3: booking widget + trainer modal */
+var DAYS=['شنبه','یکشنبه','دوشنبه','سه‌شنبه','چهارشنبه','پنجشنبه','جمعه'];
+var SLOTS=[
+ {t:'۶ تا ۸ صبح',full:false},{t:'۸ تا ۱۰ صبح',full:false},{t:'۱۰ تا ۱۲ ظهر',full:true},
+ {t:'۱۶ تا ۱۸ عصر',full:false},{t:'۱۸ تا ۲۰ عصر',full:true},{t:'۲۰ تا ۲۲ شب',full:false}
+];
+var TRAINERS=[
+ {id:'daniel',name:'Daniel Cole',role:'بدنسازی و پرورش اندام',
+  tt:[['شنبه','۸ تا ۱۲ · ۱۶ تا ۲۰'],['یکشنبه','۸ تا ۱۲ · ۱۶ تا ۲۰'],['دوشنبه','۸ تا ۱۲ · ۱۶ تا ۲۰'],['سه‌شنبه','۸ تا ۱۲ · ۱۶ تا ۲۰'],['چهارشنبه','۸ تا ۱۲ · ۱۶ تا ۲۰'],['پنجشنبه','۸ تا ۱۲'],['جمعه','—']]},
+ {id:'emma',name:'Emma Wilson',role:'کراس‌فیت و تمرینات هوازی',
+  tt:[['شنبه','۱۰ تا ۱۴ · ۱۷ تا ۲۱'],['یکشنبه','—'],['دوشنبه','۱۰ تا ۱۴ · ۱۷ تا ۲۱'],['سه‌شنبه','—'],['چهارشنبه','۱۰ تا ۱۴ · ۱۷ تا ۲۱'],['پنجشنبه','۱۰ تا ۱۴'],['جمعه','—']]},
+ {id:'james',name:'James Carter',role:'پاورلیفتینگ',
+  tt:[['شنبه','۷ تا ۱۱ · ۱۵ تا ۱۹'],['یکشنبه','۷ تا ۱۱ · ۱۵ تا ۱۹'],['دوشنبه','—'],['سه‌شنبه','۷ تا ۱۱ · ۱۵ تا ۱۹'],['چهارشنبه','—'],['پنجشنبه','۷ تا ۱۱'],['جمعه','—']]}
+];
+var BK={day:null,slot:null,trainer:null,plan:null};
+var DAYL=DAYS.map(function(x){return {t:x,v:x}});
+var SLOTL=SLOTS.map(function(x){return {t:x.t,v:x.t,full:x.full}});
+var TRL=TRAINERS.map(function(x){return {t:'<span dir="ltr">'+x.name+'</span>',v:x.id}}).concat([{t:'بدون مربی',v:'none'}]);
+function faToEn(s){return String(s).replace(/[۰۱۲۳۴۵۶۷۸۹]/g,function(d){return '۰۱۲۳۴۵۶۷۸۹'.indexOf(d)})}
+function optHtml(list,selKey){
+ var h='';
+ list.forEach(function(it,i){
+  h+='<button type="button" class="opt'+(BK[selKey]===it.v?' sel':'')+'" data-i="'+i+'"'+(it.full?' disabled':'')+'><span class="olbl">'+it.t+'</span>'+(it.full?'<span class="fulltag">تکمیل ظرفیت</span>':'')+'</button>';
+ });
+ return h;
+}
+function bindOpts(el,list,selKey){
+ Array.prototype.forEach.call(el.querySelectorAll('.opt:not(:disabled)'),function(b){
+  b.addEventListener('click',function(){
+   BK[selKey]=list[+b.getAttribute('data-i')].v;
+   document.getElementById('errSteps').textContent='';
+   renderBk();
+  });
+ });
+}
+function renderBk(){
+ var d=document.getElementById('bkDays'),s=document.getElementById('bkSlots'),t=document.getElementById('bkTrainers');
+ if(!d||!s||!t)return;
+ d.innerHTML=optHtml(DAYL,'day');bindOpts(d,DAYL,'day');
+ s.innerHTML=optHtml(SLOTL,'slot');bindOpts(s,SLOTL,'slot');
+ t.innerHTML=optHtml(TRL,'trainer');bindOpts(t,TRL,'trainer');
+}
+function validMobile(s){return /^09\d{9}$/.test(faToEn(s).replace(/[\s-]/g,''))}
+function trainerPlain(id){
+ if(!id||id==='none')return 'بدون مربی';
+ for(var i=0;i<TRAINERS.length;i++)if(TRAINERS[i].id===id)return TRAINERS[i].name;
+ return 'بدون مربی';
+}
+function trainerHtml(id){
+ var p=trainerPlain(id);
+ return /^[\x00-\x7F ]+$/.test(p)?'<span dir="ltr">'+p+'</span>':p;
+}
+document.getElementById('bkConfirm').addEventListener('click',function(){
+ var name=document.getElementById('bkName').value.trim(),
+     mob=document.getElementById('bkMobile').value.trim(),
+     eS=document.getElementById('errSteps'),eN=document.getElementById('errName'),eM=document.getElementById('errMobile');
+ eS.textContent='';eN.textContent='';eM.textContent='';
+ var ok=true;
+ if(!BK.day){eS.textContent='اول یه روز انتخاب کن';ok=false}
+ else if(!BK.slot){eS.textContent='حالا یه سانس انتخاب کن';ok=false}
+ if(!name){eN.textContent='اسمت رو وارد کن';ok=false}
+ if(!validMobile(mob)){eM.textContent='شماره موبایل معتبر نیست — ۱۱ رقم که با ۰۹ شروع بشه';ok=false}
+ if(!ok)return;
+ var code='GYM-'+Math.floor(1000+Math.random()*9000);
+ var mobEn=faToEn(mob).replace(/(\d{4})(\d{3})(\d{4})/,'$1 $2 $3');
+ var rows=[['روز',BK.day],['سانس',BK.slot],['مربی',trainerHtml(BK.trainer)]];
+ if(BK.plan)rows.push(['پلن',BK.plan]);
+ rows.push(['نام',name],['موبایل','<span dir="ltr">'+mobEn+'</span>']);
+ document.getElementById('bkSummary').innerHTML=rows.map(function(r){return '<div>'+r[0]+': <b>'+r[1]+'</b></div>'}).join('');
+ document.getElementById('bkCode').textContent=code;
+ var plain='رزرو جلسه اول رایگان\nکد پیگیری: '+code+'\nروز: '+BK.day+'\nسانس: '+BK.slot+'\nمربی: '+trainerPlain(BK.trainer)+(BK.plan?'\nپلن: '+BK.plan:'')+'\nنام: '+name+'\nموبایل: '+faToEn(mob);
+ document.getElementById('bkWa').href='https://wa.me/989123456789?text='+encodeURIComponent(plain);
+ var sc=document.getElementById('bkSuccess');
+ sc.hidden=false;
+ sc.scrollIntoView({behavior:reduce?'auto':'smooth',block:'center'});
+});
+document.getElementById('bkAgain').addEventListener('click',function(){
+ BK={day:null,slot:null,trainer:null,plan:null};
+ document.getElementById('bkName').value='';document.getElementById('bkMobile').value='';
+ document.getElementById('bkSuccess').hidden=true;
+ renderBk();
+ document.getElementById('bkw').scrollIntoView({behavior:reduce?'auto':'smooth',block:'center'});
+});
+window.prefillBooking=function(o){
+ o=o||{};
+ if(o.day&&DAYS.indexOf(o.day)>-1)BK.day=o.day;
+ if(o.trainer){var ok=o.trainer==='none';for(var i=0;i<TRAINERS.length;i++)if(TRAINERS[i].id===o.trainer)ok=true;if(ok)BK.trainer=o.trainer;}
+ if(o.plan)BK.plan=o.plan;
+ renderBk();
+ var b=document.getElementById('booking');
+ if(b)b.scrollIntoView({behavior:reduce?'auto':'smooth'});
+};
+var tmodal=document.getElementById('tmodal'),curTid=null;
+function openTModal(tid){
+ var t=null;for(var i=0;i<TRAINERS.length;i++)if(TRAINERS[i].id===tid)t=TRAINERS[i];
+ if(!t)return;curTid=tid;
+ document.getElementById('tmName').textContent=t.name;
+ document.getElementById('tmRole').textContent=t.role;
+ document.getElementById('tmTbl').innerHTML=t.tt.map(function(r){return '<tr><td>'+r[0]+'</td><td>'+r[1]+'</td></tr>'}).join('');
+ tmodal.classList.add('open');tmodal.setAttribute('aria-hidden','false');
+ document.body.style.overflow='hidden';
+}
+function closeTModal(){
+ tmodal.classList.remove('open');tmodal.setAttribute('aria-hidden','true');
+ document.body.style.overflow='';
+}
+Array.prototype.forEach.call(tmodal.querySelectorAll('[data-tclose]'),function(el){
+ el.addEventListener('click',closeTModal);
+});
+document.addEventListener('keydown',function(e){
+ if(e.key==='Escape'&&tmodal.classList.contains('open'))closeTModal();
+});
+document.getElementById('tmPick').addEventListener('click',function(){
+ closeTModal();window.prefillBooking({trainer:curTid});
+});
+Array.prototype.forEach.call(document.querySelectorAll('.tcard'),function(c){
+ function go(){openTModal(c.getAttribute('data-tid'))}
+ c.addEventListener('click',go);
+ c.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();go()}});
+});
+Array.prototype.forEach.call(document.querySelectorAll('.hours-tbl tr[data-day]'),function(r){
+ r.addEventListener('click',function(){window.prefillBooking({day:r.getAttribute('data-day')})});
+});
+Array.prototype.forEach.call(document.querySelectorAll('[data-plan]'),function(a){
+ a.addEventListener('click',function(e){e.preventDefault();window.prefillBooking({plan:a.getAttribute('data-plan')})});
+});
+renderBk();
 station('1','pulling');station('2','squatting');station('3','pressing');station('4','swinging');
 })();
 </script>
