@@ -829,7 +829,7 @@ document.getElementById('bkConfirm').addEventListener('click',function(){
  var mobEn=faToEn(mob).replace(/(\d{4})(\d{3})(\d{4})/,'$1 $2 $3');
  var rows=[['روزها',BK.days.join('، ')],['سانس',BK.slot],['مربی',trainerHtml(BK.trainer)]];
  if(BK.plan)rows.push(['پلن',BK.plan]);
- rows.push(['نام',name],['موبایل','<span dir="ltr">'+mobEn+'</span>']);
+ rows.push(['نام',name.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')],['موبایل','<span dir="ltr">'+mobEn+'</span>']);
  document.getElementById('bkSummary').innerHTML=rows.map(function(r){return '<div>'+r[0]+': <b>'+r[1]+'</b></div>'}).join('');
  document.getElementById('bkCode').textContent=code;
  var plain='رزرو جلسه اول رایگان\nکد پیگیری: '+code+'\nروزها: '+BK.days.join('، ')+'\nسانس: '+BK.slot+'\nمربی: '+trainerPlain(BK.trainer)+(BK.plan?'\nپلن: '+BK.plan:'')+'\nنام: '+name+'\nموبایل: '+faToEn(mob);
